@@ -1,6 +1,5 @@
-import 'dart:html';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:got_fanapp/models/personaje.dart';
 
 import 'package:got_fanapp/pages/home_page.dart';
 import 'package:got_fanapp/pages/info_page.dart';
@@ -19,7 +18,10 @@ Route routes(RouteSettings settings) {
     case Routes.home:
       return MaterialPageRoute(builder: (_) => HomePage(), settings: settings);
     case Routes.info:
-      return MaterialPageRoute(builder: (_) => InfoPage(), settings: settings);
+      final InfoPageArguments args = settings.arguments as InfoPageArguments;
+      return MaterialPageRoute(
+          builder: (_) => InfoPage(personaje: args.personaje),
+          settings: settings);
     case Routes.personajes:
       return MaterialPageRoute(
           builder: (_) => PersonajesPage(), settings: settings);
