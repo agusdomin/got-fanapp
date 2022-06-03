@@ -48,7 +48,6 @@ class _PersonajesFavPageState extends State<PersonajesFavPage> {
                 pageSnapping: true,
                 itemCount: lastIndex,
                 itemBuilder: (BuildContext context, int index) {
-                  print("""$index  $lastIndex""");
                   if (index < lastIndex - 1) {
                     Personaje? personaje = snapshot.data?[index] ??
                         Personaje(

@@ -14,11 +14,35 @@ class AddPersonajeFavCard extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            width: 200,
-            child: Column(
-              children: [
-                Text("Aniadir pesonaje"),
-              ],
+            width: 400,
+            height: 600,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(width: 10, color: Colors.grey)),
+            child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.grey,
+                    radius: 70,
+                    child: Ink(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(width: 3, color: Colors.grey)),
+                      child: IconButton(
+                        icon: const Icon(Icons.add),
+                        iconSize: 100,
+                        color: Colors.grey,
+                        onPressed: () {},
+                      ),
+                    ),
+                  ),
+                  Padding(padding: EdgeInsetsDirectional.only(top: 20)),
+                  Text("Añadir un personaje"),
+                ],
+              ),
             ),
           )
         ],
