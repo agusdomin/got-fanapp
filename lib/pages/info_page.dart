@@ -41,8 +41,7 @@ class _InfoPageState extends State<InfoPage> {
                   top: 40,
                   left: 30,
                   child: ElevatedButton(
-                      onPressed: (() =>
-                          {Navigator.pushNamed(context, Routes.home)}),
+                      onPressed: (() => {Navigator.pop(context)}),
                       child: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,

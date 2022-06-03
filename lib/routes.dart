@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:got_fanapp/models/personaje.dart';
 
+import 'package:got_fanapp/models/personaje.dart';
 import 'package:got_fanapp/pages/home_page.dart';
 import 'package:got_fanapp/pages/info_page.dart';
 import 'package:got_fanapp/pages/personajes_page.dart';
-import 'package:got_fanapp/pages/casas_page.dart';
+import 'package:got_fanapp/pages/casas_fav_page.dart';
 
 class Routes {
   static const String home = '/';
@@ -26,7 +26,8 @@ Route routes(RouteSettings settings) {
       return MaterialPageRoute(
           builder: (_) => PersonajesPage(), settings: settings);
     case Routes.casas:
-      return MaterialPageRoute(builder: (_) => CasasPage(), settings: settings);
+      return MaterialPageRoute(
+          builder: (_) => CasasFavPage(), settings: settings);
     default:
       return MaterialPageRoute(
           builder: (_) => const Scaffold(

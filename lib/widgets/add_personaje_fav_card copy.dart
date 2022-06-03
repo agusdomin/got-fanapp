@@ -9,7 +9,7 @@ class AddPersonajeFavCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {Navigator.pushNamed(context, Routes.home)},
+      onTap: () => {Navigator.pushNamed(context, Routes.personajes)},
       child: Column(
         children: [
           Container(
