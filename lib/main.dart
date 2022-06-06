@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:got_fanapp/cubit/personajes_cubit.dart';
 import 'package:got_fanapp/routes.dart';
+import 'package:got_fanapp/services/personajes_services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +14,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'GoT Fan App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      onGenerateRoute: routes,
-      initialRoute: Routes.home,
-    );
+    return BlocProvider(
+        create: (_) => PersonajesCubit(PersonajeService()),
+        child: MaterialApp(
+          title: 'GoT Fan App',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          onGenerateRoute: routes,
+          initialRoute: Routes.home,
+        ));
   }
 }
 
