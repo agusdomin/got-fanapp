@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:got_fanapp/cubit/personajes_cubit.dart';
 import 'package:got_fanapp/cubit/personajes_state.dart';
 
-import 'package:got_fanapp/models/personaje.dart';
 import 'package:got_fanapp/routes.dart';
 
 import 'package:got_fanapp/widgets/personajes_fav_pageview.dart';
@@ -20,8 +19,6 @@ class PersonajesFavPage extends StatefulWidget {
 }
 
 class _PersonajesFavPageState extends State<PersonajesFavPage> {
-  //List<Personaje> personajes = [];
-
   // Future<List<Personaje>> _getDataFuture() async {
   //   // return http
   //   //     .get(Uri.parse("https://thronesapi.com/api/v2/Characters"))

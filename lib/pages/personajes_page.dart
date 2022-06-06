@@ -4,9 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:got_fanapp/cubit/personajes_cubit.dart';
 import 'package:got_fanapp/cubit/personajes_state.dart';
-import 'package:got_fanapp/models/personaje.dart';
-import 'package:got_fanapp/services/personajes_services.dart';
-import 'package:got_fanapp/widgets/personaje_item_list.dart';
+
 import 'package:got_fanapp/widgets/personajes_searcher.dart';
 
 class PersonajesPage extends StatefulWidget {
@@ -17,6 +15,7 @@ class PersonajesPage extends StatefulWidget {
 }
 
 class _PersonajesPageState extends State<PersonajesPage> {
+  // Como consumir un endpoint o tomar datos de un json
   // Future<List<Personaje>> _getDataFuture() async {
   //   // return http
   //   //     .get(Uri.parse("https://thronesapi.com/api/v2/Characters"))
@@ -53,7 +52,8 @@ class _PersonajesPageState extends State<PersonajesPage> {
           if (state is PersonajesInitial) {
           } else if (state is PersonajesLoading) {
             return const CircularProgressIndicator();
-          } else if (state is PersonajesFetched) {
+          } else if ((state is PersonajesFetched) ||
+              (state is PersonajesBuscado)) {
             return PersonajesSearcher(
               personajes: state.personajesAll,
             );
@@ -61,6 +61,7 @@ class _PersonajesPageState extends State<PersonajesPage> {
             return const Text("No hay datos");
           }
           return const Text("Debido a un error no pueden mostrarse los datos");
+
           // Error
           //   return(Column(
           //   mainAxisAlignment: MainAxisAlignment.start,

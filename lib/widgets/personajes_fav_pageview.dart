@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:got_fanapp/models/personaje.dart';
+import 'package:got_fanapp/services/models/personaje.dart';
+
 import 'package:got_fanapp/widgets/add_personaje_fav_card.dart';
 import 'package:got_fanapp/widgets/personaje_fav_card.dart';
 

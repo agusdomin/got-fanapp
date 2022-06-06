@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:got_fanapp/models/personaje.dart';
+
 import 'package:got_fanapp/pages/personajes_fav_page.dart';
 import 'package:got_fanapp/pages/info_page.dart';
 import 'package:got_fanapp/routes.dart';
+import 'package:got_fanapp/services/models/personaje.dart';
 
 class PersonajeFavCard extends StatelessWidget {
   Personaje personaje;

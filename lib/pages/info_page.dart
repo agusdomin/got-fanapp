@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:got_fanapp/models/personaje.dart';
+
 import 'package:got_fanapp/routes.dart';
+import 'package:got_fanapp/services/models/personaje.dart';
 
 class InfoPageArguments {
   final Personaje personaje;

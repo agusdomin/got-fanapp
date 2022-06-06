@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:got_fanapp/models/personaje.dart';
 import 'package:got_fanapp/pages/home_page.dart';
 import 'package:got_fanapp/pages/info_page.dart';
 import 'package:got_fanapp/pages/personajes_page.dart';
