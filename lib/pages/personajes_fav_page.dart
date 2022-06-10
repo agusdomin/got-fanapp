@@ -38,7 +38,8 @@ class _PersonajesFavPageState extends State<PersonajesFavPage> {
         if (state is PersonajesInitial) {
         } else if (state is PersonajesLoading) {
           return const CircularProgressIndicator();
-        } else if (state is PersonajesFetched) {
+        } else if ((state is PersonajesFetched) ||
+            (state is PersonajesBuscado)) {
           return PersonajesFavPageView(
             personajes: state.personajesAll,
           );
