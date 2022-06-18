@@ -49,18 +49,14 @@ class _PersonajesPageState extends State<PersonajesPage> {
       ),
       body: BlocBuilder<PersonajesCubit, PersonajesState>(
         builder: (context, state) {
+          debugPrint("""$state""");
           if (state is PersonajesInitial) {
           } else if (state is PersonajesLoading) {
             return const CircularProgressIndicator();
-          } else if ((state is PersonajesFetched) ||
-              (state is PersonajesBuscado)) {
-            return PersonajesSearcher(
-              personajes: state.personajesAll,
-            );
           } else if (state is PersonajesEmpty) {
             return const Text("No hay datos");
           }
-          return const Text("Debido a un error no pueden mostrarse los datos");
+          return PersonajesSearcher();
 
           // Error
           //   return(Column(

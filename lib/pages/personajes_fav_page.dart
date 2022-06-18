@@ -38,16 +38,12 @@ class _PersonajesFavPageState extends State<PersonajesFavPage> {
         if (state is PersonajesInitial) {
         } else if (state is PersonajesLoading) {
           return const CircularProgressIndicator();
-        } else if ((state is PersonajesFetched) ||
-            (state is PersonajesBuscado)) {
-          return PersonajesFavPageView(
-            personajes: state.personajesAll,
-          );
         } else if (state is PersonajesEmpty) {
           return const Text("No hay datos");
         }
-        return const Text("Debido a un error no pueden mostrarse los datos");
-        // Error
+        return PersonajesFavPageView(
+          personajes: state.personajesFavs,
+        );
       },
       // child: Container(
       //     margin: EdgeInsetsDirectional.all(50.0),

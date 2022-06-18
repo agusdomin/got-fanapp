@@ -48,4 +48,16 @@ class Personaje {
         "image": image,
         "imageUrl": imageUrl,
       };
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      // "firstName": firstName,
+      // "lastName": lastName,
+      // "fullName": fullName,
+      // "title": title,
+      // "family": family,
+      // "image": image,
+      // "imageUrl": imageUrl,
+    };
+  }
 }

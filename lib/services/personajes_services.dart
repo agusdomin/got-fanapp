@@ -16,15 +16,15 @@ class PersonajeService {
     return list.map((e) => Personaje.fromJson(e)).toList();
   }
 
-  Future<List<Personaje>> getPersonajesFav() async {
-    // return http
-    //     .get(Uri.parse("https://thronesapi.com/api/v2/Characters"))
-    //     .then((response) {
-    //   return personajesFromJson(response.body);
-    //});
-    final jsonData = await rootBundle.loadString('jsonFiles/personajes.json');
-    final list = json.decode(jsonData) as List<dynamic>;
+  // Future<List<Personaje>> getPersonajesFav() async {
+  //   // return http
+  //   //     .get(Uri.parse("https://thronesapi.com/api/v2/Characters"))
+  //   //     .then((response) {
+  //   //   return personajesFromJson(response.body);
+  //   //});
+  //   final jsonData = await rootBundle.loadString('jsonFiles/personajes.json');
+  //   final list = json.decode(jsonData) as List<dynamic>;
 
-    return list.map((e) => Personaje.fromJson(e)).toList();
-  }
+  //   return list.map((e) => Personaje.fromJson(e)).toList();
+  // }
 }
