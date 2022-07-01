@@ -41,6 +41,7 @@ class _PersonajesFavPageState extends State<PersonajesFavPage> {
         } else if (state is PersonajesEmpty) {
           return const Text("No hay datos");
         }
+        print(state.personajesFavs);
         return PersonajesFavPageView(
           personajes: state.personajesFavs,
         );

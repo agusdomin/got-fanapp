@@ -11,6 +11,7 @@ class PersonajesFavPageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(personajes);
     int lastIndex = (personajes.length) + 1;
     return Container(
         margin: EdgeInsetsDirectional.all(50.0),

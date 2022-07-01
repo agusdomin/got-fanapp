@@ -56,7 +56,9 @@ class _PersonajesPageState extends State<PersonajesPage> {
           } else if (state is PersonajesEmpty) {
             return const Text("No hay datos");
           }
-          return PersonajesSearcher();
+          return PersonajesSearcher(
+            personajes: state.personajesFiltrados,
+          );
 
           // Error
           //   return(Column(

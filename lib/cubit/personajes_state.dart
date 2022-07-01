@@ -22,9 +22,9 @@ class PersonajesState extends Equatable {
   }
 
   List<Personaje> get personajesFavs {
-    return personajes
-        .where((element) => personajesFav.contains(element.id))
-        .toList();
+    return personajesFav;
+    //.where((element) => personajesFav.contains(element.id))
+    //.toList();
   }
 
   int get count => personajesAll.length;
@@ -46,7 +46,7 @@ class PersonajesState extends Equatable {
   }) {
     return PersonajesState(
       personajes: personajes ?? this.personajes,
-      //personajesFav: personajesFav ?? this.personajesFav,
+      personajesFav: personajesFav ?? this.personajesFav,
       search: search ?? this.search,
     );
   }
@@ -70,7 +70,7 @@ class PersonajesFetched extends PersonajesState {
   const PersonajesFetched(
       {required List<Personaje> personajes,
       required List<Personaje> personajesFav})
-      : super(personajes: personajes);
+      : super(personajes: personajes, personajesFav: personajesFav);
 }
 
 class PersonajesEmpty extends PersonajesState {

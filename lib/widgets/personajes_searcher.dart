@@ -7,9 +7,8 @@ import 'package:got_fanapp/services/models/personaje.dart';
 import 'package:got_fanapp/widgets/personaje_item_list.dart';
 
 class PersonajesSearcher extends StatelessWidget {
-  //List<Personaje> personajes;
-  PersonajesSearcher({/*required this.personajes,*/ Key? key})
-      : super(key: key);
+  List<Personaje> personajes;
+  PersonajesSearcher({required this.personajes, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

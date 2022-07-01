@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:got_fanapp/services/models/personaje.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -25,13 +24,14 @@ class DatabaseHelper {
 
     final path = join(dbPath, filePath);
 
-    return await openDatabase(path, version: 1, onCreate: _createDB);
+    return await openDatabase(path, version: 5, onCreate: _createDB);
   }
 
   Future _createDB(Database db /* db es el path */, int version) async {
-    final id = 'INTEGER PRIMARY KEY';
+    final idType = "INTEGER PRIMARY KEY ";
+
     return db.execute(
-      '''CREATE TABLE favoritos($id)''',
+      "CREATE TABLE favoritos(id $idType,firstName TEXT,lastName TEXT,fullName TEXT,title TEXT,family TEXT,image TEXT,imageUrl TEXT)",
     );
   }
 
@@ -41,10 +41,31 @@ class DatabaseHelper {
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  Future getAllFavs() async {
+  Future<void> deleteFav(Personaje personaje) async {
     final db = await instance.database;
-    final List<Map> allFavs = await db.query('favorito');
-    return allFavs;
+    // Eliminar de base de datos
+  }
+
+  Future<List<Personaje>> getAllFavs() async {
+    final db = await instance.database;
+    final List<Map> maps = await db.query('favoritos');
+    if (maps.isNotEmpty) {
+      return List.generate(maps.length, (i) {
+        return Personaje(
+          id: maps[i]['id'],
+          firstName: maps[i]['firstName'],
+          lastName: maps[i]['lastName'],
+          fullName: maps[i]['fullName'],
+          title: maps[i]['title'],
+          family: maps[i]['family'],
+          image: maps[i]['image'],
+          imageUrl: maps[i]['imageUrl'],
+        );
+      });
+    } else {
+      print("No hay personajes favoritos");
+      return [];
+    }
   }
 }
 

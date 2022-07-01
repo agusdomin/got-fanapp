@@ -6,6 +6,27 @@ List<Personaje> personajesFromJson(String str) =>
 String personajesToJson(List<Personaje> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+// class PersonajeFields {
+//   static final List<String> values = [
+//     id,
+//     firstName,
+//     lastName,
+//     fullName,
+//     title,
+//     family,
+//     image,
+//     imageUrl
+//   ];
+//   static final String id = 'id';
+//   static final String firstName = 'firstName';
+//   static final String lastName = 'lastName';
+//   static final String fullName = 'fullName';
+//   static final String title = 'title';
+//   static final String family = 'family';
+//   static final String image = 'image';
+//   static final String imageUrl = 'imageUrl';
+// }
+
 class Personaje {
   Personaje({
     required this.id,
@@ -18,14 +39,14 @@ class Personaje {
     required this.imageUrl,
   });
 
-  int id;
-  String firstName;
-  String lastName;
-  String fullName;
-  String title;
-  String family;
-  String image;
-  String imageUrl;
+  final int id;
+  final String firstName;
+  final String lastName;
+  final String fullName;
+  final String title;
+  final String family;
+  final String image;
+  final String imageUrl;
 
   factory Personaje.fromJson(Map<String, dynamic> json) => Personaje(
         id: json["id"],
@@ -51,13 +72,13 @@ class Personaje {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      // "firstName": firstName,
-      // "lastName": lastName,
-      // "fullName": fullName,
-      // "title": title,
-      // "family": family,
-      // "image": image,
-      // "imageUrl": imageUrl,
+      "firstName": firstName,
+      "lastName": lastName,
+      "fullName": fullName,
+      "title": title,
+      "family": family,
+      "image": image,
+      "imageUrl": imageUrl,
     };
   }
 }

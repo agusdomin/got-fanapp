@@ -16,11 +16,12 @@ class PersonajesCubit extends Cubit<PersonajesState> {
     try {
       final personajes = await _service.getPersonajes();
       final personajesFav = await _db.getAllFavs();
+      print(personajesFav);
       if (personajes.isEmpty) {
         emit(PersonajesEmpty());
       } else {
         emit(PersonajesFetched(
-            personajes: personajes, personajesFav: personajes));
+            personajes: personajes, personajesFav: personajesFav));
       }
     } on Exception {
       emit(PersonajesError());
@@ -35,9 +36,24 @@ class PersonajesCubit extends Cubit<PersonajesState> {
   }
 
   // Agregar un metodo que permite agregar favorito, que llame a _db.insertFav
-  void toggleFav(Personaje personaje) {
-    //emit(state.copyWith(personajesFav: personaje))
-    //Actualizar de alguna manera los personajesFav
-    _db.insertFav(personaje);
+  void toggleFav(Personaje personaje) async {
+    final favoritos = state.personajesFavs;
+    if (isFav(personaje)) {
+      await _db.deleteFav(personaje);
+      favoritos.remove(personaje);
+      emit(state.copyWith(personajesFav: favoritos));
+    } else {
+      await _db.insertFav(personaje);
+      favoritos.add(personaje);
+      emit(state.copyWith(personajesFav: favoritos));
+    }
+  }
+
+  bool isFav(Personaje personaje) {
+    final favoritos = state.personajesFavs;
+    if (favoritos.contains(personaje)) {
+      return true;
+    }
+    return false;
   }
 }
