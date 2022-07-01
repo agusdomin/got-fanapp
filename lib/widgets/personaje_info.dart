@@ -97,26 +97,27 @@ class PersonajeInfo extends StatelessWidget {
                       borderRadius: BorderRadius.circular(18.0),
                     ),
                   ))));
+            } else {
+              return (ElevatedButton.icon(
+                  onPressed: (() =>
+                      {personajesCubit.toggleFav(widget.personaje)}),
+                  icon: Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    "Eliminar de favoritos",
+                    style: TextStyle(fontSize: 22, color: Colors.white),
+                  ),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.red),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                      ))));
             }
-            return (ElevatedButton.icon(
-                onPressed: (() =>
-                    {personajesCubit.toggleFav(widget.personaje)}),
-                icon: Icon(
-                  Icons.favorite,
-                  color: Colors.white,
-                ),
-                label: Text(
-                  "Eliminar de favoritos",
-                  style: TextStyle(fontSize: 22, color: Colors.white),
-                ),
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.red),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                    ))));
           },
         )
       ],

@@ -41,9 +41,11 @@ class DatabaseHelper {
         conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
-  Future<void> deleteFav(Personaje personaje) async {
+  Future<void> deleteFav(int id) async {
     final db = await instance.database;
     // Eliminar de base de datos
+
+    await db.delete('favoritos', where: 'id = ?', whereArgs: [id]);
   }
 
   Future<List<Personaje>> getAllFavs() async {

@@ -39,10 +39,10 @@ class PersonajesCubit extends Cubit<PersonajesState> {
   void toggleFav(Personaje personaje) async {
     final favoritos = state.personajesFavs;
     if (isFav(personaje)) {
-      await _db.deleteFav(personaje);
+      await _db.deleteFav(personaje.id);
       favoritos.remove(personaje);
       emit(state.copyWith(personajesFav: favoritos));
-    } else {
+    } else if (!(isFav(personaje))) {
       await _db.insertFav(personaje);
       favoritos.add(personaje);
       emit(state.copyWith(personajesFav: favoritos));
