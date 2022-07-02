@@ -29,13 +29,9 @@ class PersonajesCubit extends Cubit<PersonajesState> {
   }
 
   void search(String value) {
-    //emit(PersonajesBuscado(personajes: state.personajes, search: value)); es buena solucion tambien
-    emit(state.copyWith(
-        search:
-            value)); // copyWith va a copiar los datos a un nuevo estado, ese estado va a ser la super clase!!!
+    emit(state.copyWith(search: value));
   }
 
-  // Agregar un metodo que permite agregar favorito, que llame a _db.insertFav
   void toggleFav(Personaje personaje) async {
     final favoritos = [...state.personajesFavs];
 
@@ -49,11 +45,6 @@ class PersonajesCubit extends Cubit<PersonajesState> {
     } else {
       await _db.insertFav(personaje);
       favoritos.add(personaje);
-
-      // emit(state.copyWith(personajesFav: [
-      //   ...favoritos,
-      //   ...[personaje]
-      // ]));
       emit(state.copyWith(personajesFav: favoritos));
     }
   }
@@ -63,10 +54,6 @@ class PersonajesCubit extends Cubit<PersonajesState> {
     int fav = state.personajesFavs
         .where((element) => element.id == personaje.id)
         .length;
-    // if (favoritos.contains(personaje)) {
-    //   return true;
-    // }
-    // return false;
     if (fav > 0) {
       return true;
     }

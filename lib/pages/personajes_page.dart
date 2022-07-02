@@ -15,19 +15,6 @@ class PersonajesPage extends StatefulWidget {
 }
 
 class _PersonajesPageState extends State<PersonajesPage> {
-  // Como consumir un endpoint o tomar datos de un json
-  // Future<List<Personaje>> _getDataFuture() async {
-  //   // return http
-  //   //     .get(Uri.parse("https://thronesapi.com/api/v2/Characters"))
-  //   //     .then((response) {
-  //   //   return personajesFromJson(response.body);
-  //   //});
-  //   final jsonData = await rootBundle.loadString('jsonFiles/personajes.json');
-  //   final list = json.decode(jsonData) as List<dynamic>;
-
-  //   return list.map((e) => Personaje.fromJson(e)).toList();
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,51 +46,6 @@ class _PersonajesPageState extends State<PersonajesPage> {
           return PersonajesSearcher(
             personajes: state.personajesFiltrados,
           );
-
-          // Error
-          //   return(Column(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   children: [
-          //     SizedBox(
-          //       width: 300,
-          //       child: TextField(
-          //         textAlign: TextAlign.center,
-          //         decoration: InputDecoration(
-          //             hintText: "Nombre del personaje",
-          //             border: OutlineInputBorder()),
-          //       ),
-          //     ),
-          //     Padding(padding: EdgeInsetsDirectional.all(20)),
-          //     Container(
-          //       height: MediaQuery.of(context).size.height - 188,
-          //       child: FutureBuilder<List<Personaje>>(
-          //         builder: ((context, snapshot) {
-          //           if (snapshot.hasError) {
-          //             return Text("No hay informacion");
-          //           } else if (snapshot.hasData && snapshot.data != null) {
-          //             return ListView.builder(
-          //                 itemCount: snapshot.data?.length,
-          //                 itemBuilder: (BuildContext context, int index) {
-          //                   Personaje? personaje = snapshot.data?[index] ??
-          //                       Personaje(
-          //                           id: 1,
-          //                           firstName: "firstName",
-          //                           lastName: "lastName",
-          //                           fullName: "fullName",
-          //                           title: "title",
-          //                           family: "family",
-          //                           image: "image",
-          //                           imageUrl: "imageUrl");
-          //                   return PersonajeItemList(personaje: personaje);
-          //                 });
-          //           }
-          //           return const CircularProgressIndicator();
-          //         }),
-          //         future: _getDataFuture(),
-          //       ),
-          //     ),
-          //   ],
-          // ));
         },
       ),
     );

@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 
 import 'package:got_fanapp/services/models/personaje.dart';
 
-//Equatable. Facilita la comparacion entre objetos complejos
 class PersonajesState extends Equatable {
   final List<Personaje> personajes;
   //Analizar si no puede ser de otro tipo personajesFav
@@ -37,8 +36,6 @@ class PersonajesState extends Equatable {
     this.search = '',
   });
 
-// Copiar este estado y retornar uno nuevo. Se usa para crear los nuevos estados.
-// Por la inmutabilidad de flutter, destruye y crea widgets.
   PersonajesState copyWith({
     List<Personaje>? personajes,
     List<Personaje>? personajesFav,
@@ -51,9 +48,6 @@ class PersonajesState extends Equatable {
     );
   }
 
-// get es conocido como una property, escribo como si fuera una funcion pero la llamo como una variable
-
-//  props. Parte de Equatable, declarando los atributos que queremos que compare.
   @override
   List<Object> get props => [personajes, personajesFav, search];
 }

@@ -6,27 +6,6 @@ List<Personaje> personajesFromJson(String str) =>
 String personajesToJson(List<Personaje> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-// class PersonajeFields {
-//   static final List<String> values = [
-//     id,
-//     firstName,
-//     lastName,
-//     fullName,
-//     title,
-//     family,
-//     image,
-//     imageUrl
-//   ];
-//   static final String id = 'id';
-//   static final String firstName = 'firstName';
-//   static final String lastName = 'lastName';
-//   static final String fullName = 'fullName';
-//   static final String title = 'title';
-//   static final String family = 'family';
-//   static final String image = 'image';
-//   static final String imageUrl = 'imageUrl';
-// }
-
 class Personaje {
   Personaje({
     required this.id,

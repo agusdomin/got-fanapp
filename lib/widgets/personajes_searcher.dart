@@ -24,16 +24,7 @@ class PersonajesSearcher extends StatelessWidget {
               decoration: InputDecoration(
                   hintText: "Nombre del personaje",
                   border: OutlineInputBorder()),
-            )
-
-            // child: TextField(
-            //   onChanged: (value) => personajesCubit.search(value),
-            //   textAlign: TextAlign.center,
-            //   decoration: InputDecoration(
-            //       hintText: "Nombre del personaje", border: OutlineInputBorder()),
-            // ),
-
-            ),
+            )),
         Padding(padding: EdgeInsetsDirectional.all(20)),
         BlocBuilder<PersonajesCubit, PersonajesState>(
           builder: (context, state) {
