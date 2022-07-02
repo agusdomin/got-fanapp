@@ -14,7 +14,7 @@ class AddPersonajeFavCard extends StatelessWidget {
           Container(
             alignment: Alignment.center,
             width: 400,
-            height: 600,
+            height: 580,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(width: 10, color: Colors.grey)),
@@ -34,14 +34,7 @@ class AddPersonajeFavCard extends StatelessWidget {
                           Icons.add,
                           size: 100,
                           color: Colors.grey,
-                        )
-                        // IconButton(
-                        //   icon: const Icon(Icons.add),
-                        //   iconSize: 100,
-                        //   color: Colors.grey,
-                        //   onPressed: () {},
-                        // ),
-                        ),
+                        )),
                   ),
                   Padding(padding: EdgeInsetsDirectional.only(top: 20)),
                   Text("Añadir un personaje"),

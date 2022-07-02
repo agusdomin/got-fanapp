@@ -37,21 +37,37 @@ class PersonajesCubit extends Cubit<PersonajesState> {
 
   // Agregar un metodo que permite agregar favorito, que llame a _db.insertFav
   void toggleFav(Personaje personaje) async {
-    final favoritos = state.personajesFavs;
+    final favoritos = [...state.personajesFavs];
+
     if (isFav(personaje)) {
       await _db.deleteFav(personaje.id);
       favoritos.remove(personaje);
-      emit(state.copyWith(personajesFav: favoritos));
-    } else if (!(isFav(personaje))) {
+      emit(state.copyWith(personajesFav: favoritos
+          // .where((element) => element.id != personaje.id)
+          // .toList()
+          ));
+    } else {
       await _db.insertFav(personaje);
       favoritos.add(personaje);
+
+      // emit(state.copyWith(personajesFav: [
+      //   ...favoritos,
+      //   ...[personaje]
+      // ]));
       emit(state.copyWith(personajesFav: favoritos));
     }
   }
 
   bool isFav(Personaje personaje) {
     final favoritos = state.personajesFavs;
-    if (favoritos.contains(personaje)) {
+    int fav = state.personajesFavs
+        .where((element) => element.id == personaje.id)
+        .length;
+    // if (favoritos.contains(personaje)) {
+    //   return true;
+    // }
+    // return false;
+    if (fav > 0) {
       return true;
     }
     return false;
